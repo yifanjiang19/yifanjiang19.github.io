@@ -311,6 +311,14 @@ nav {
 }
 
 
+#conference{
+    font-size: 14px; 
+    font-weight: bold; 
+    font-style: italic;
+    color:#4753ff;
+    /* color:#964604 */
+}
+
 #main-pub-container .subtitle a.activated {
     color: #333333;
     text-decoration:underline;
