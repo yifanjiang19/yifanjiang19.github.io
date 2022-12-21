@@ -120,10 +120,17 @@ nav {
     max-height: 300px
 }
 
+@media(max-width:576px) {
+    .home-wrapper .picture img {
+        max-width:90%
+        /* max-height: 280px */
+    }
+}
+
 @media(min-width:576px) {
     .home-wrapper .picture img {
         /* max-width: 200px */
-        max-height: 280px
+        max-height: 300px
     }
 }
 
