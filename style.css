@@ -232,7 +232,7 @@ nav {
 
 @media(min-width:767.98px) {
     .pub-wrapper .figure img {
-        max-height: 160px;
+        max-height: 180px;
     }
 }
 
