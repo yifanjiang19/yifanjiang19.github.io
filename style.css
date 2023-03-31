@@ -40,12 +40,6 @@ a:hover {
 }
 
 
-.section-item {
-    min-height: 180px;
-    /* padding-top: 10px;
-    padding-bottom: 10px */
-}
-
 .section-title {
     font-family: "Open Sans", Segoe, "Segoe UI", "Lucida Sans Unicode", "Lucida Grande", "Avenir", "Seravek", "Ubuntu", "DejaVu Sans", "Trebuchet MS", Verdana, Arial, sans-serif;
     font-size: 26px;
@@ -129,6 +123,9 @@ nav {
 @media(max-width:576px) {
     .home-wrapper .picture img {
         max-width:100%
+    }
+    .pub-card{
+        padding-bottom: 20px;
     }
 }
 
@@ -233,6 +230,9 @@ nav {
 @media(min-width:767.98px) {
     .pub-wrapper .figure img {
         max-height: 180px;
+    }
+    .section-item {
+        min-height: 180px;
     }
 }
 
