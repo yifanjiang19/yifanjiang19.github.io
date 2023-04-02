@@ -39,6 +39,12 @@ a:hover {
     text-decoration: underline
 }
 
+.fas, .fab {
+    /* line-height: 2; */
+    padding-top: 5px;
+    padding-right: 3px;
+    font-size: 1.8em;
+}
 
 .section-title {
     font-family: "Open Sans", Segoe, "Segoe UI", "Lucida Sans Unicode", "Lucida Grande", "Avenir", "Seravek", "Ubuntu", "DejaVu Sans", "Trebuchet MS", Verdana, Arial, sans-serif;
