@@ -335,7 +335,7 @@
             <div class="container-fluid" id="main-pub-container">
                 <div class="row">
                     <div class="col col-wrapper">
-                        <div class="section-title">Publications</div>
+                        <div class="section-title" id="selected_publication">Selected Publications</div>
                     </div>
                 </div>
                 <h5 class="subtitle" id="all-publications">
@@ -1104,6 +1104,8 @@
             //     return ;
             // }
             // alert("s");
+            var b = $("#selected_publication");
+            b.text("Selected Publications");
             $("#main-pub-container .subtitle a").removeClass("activated");
             $("#main-pub-container .subtitle-aux a").removeClass("activated");
             a.addClass("activated");
@@ -1118,10 +1120,13 @@
         }
 
         function publicationByDate() {
-            var a = $("#publication-by-date")
+            var a = $("#publication-by-date");
             if (a.hasClass("activated")) {
                 return;
             }
+
+            var b = $("#selected_publication");
+            b.text("Full Publications");
 
             $("#main-pub-container .subtitle a").removeClass("activated");
             $("#main-pub-container .subtitle-aux a").removeClass("activated");
@@ -1181,6 +1186,8 @@
 
         function publicationByTopic() {
             publicationByTopicInner();
+            var b = $("#selected_publication");
+            b.text("Full Publications");
             publicationByTopicSpecificInner($("#main-pub-container .subtitle-aux a:first"));
             return true;
         }
