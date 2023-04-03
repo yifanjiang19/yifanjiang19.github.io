@@ -397,7 +397,7 @@
                                     Zhangyang Wang, 
                                     Humphrey Shi
                                 </div>
-                                <div><a id="conference">Arxiv</a></div>
+                                <div><a id="conference">Arxiv Preprint</a></div>
                                 <a href="https://arxiv.org/abs/2303.17546#">[Paper]</a>
                                 <a href="https://github.com/Picsart-AI-Research/PAIR-Diffusion">[Code]</a>
                             </div>
@@ -1024,7 +1024,16 @@
                 </div>
             </div>
         </div>
-        <div style="font-size:16px; margin-left:20px; font-style:italic"><p>Click to show <a id="publication-by-date" href="#research-interests" ,="" onclick="publicationByDate();" class="">[Full Publications]</a></p></div>
+        <div id="click-full-pub" style="font-size:16px; margin-left:20px; font-style:italic">
+            <p>
+                Click to show <a href="#research-interests" ,="" onclick="publicationByDate();" class="">[Full Publications]</a>
+            </p>
+        </div>
+        <div id="click-selected-pub" style="font-size:16px; margin-left:20px; font-style:italic">
+            <p>
+                Click to show <a href="#research-interests" ,="" onclick="publicationBySelected();" class="">[Selected Publications]</a>
+            </p>
+        </div>
         </br>
         </br>
         <!-- <div class="sec-wrapper exp-wrapper" id="exp">
@@ -1126,6 +1135,10 @@
                     $("#main-pub-card-container").append(pub);
                 }
             }
+            var c = $("#click-selected-pub");
+            var d = $("#click-full-pub");
+            c.hide();
+            d.show();
         }
 
         function publicationByDate() {
@@ -1149,6 +1162,10 @@
                 }
                 $("#main-pub-card-container").append(allPublications[pubId]);
             }
+            var c = $("#click-selected-pub");
+            var d = $("#click-full-pub");
+            c.show();
+            d.hide();
         }
 
         function publicationByTopicInner() {
@@ -1182,6 +1199,7 @@
                     }
                 }
             }
+            
         }
 
         function publicationByTopicSpecificInner(a) {
@@ -1197,6 +1215,10 @@
             publicationByTopicInner();
             var b = $("#selected_publication");
             b.text("Full Publications");
+            var c = $("#click-selected-pub");
+            var d = $("#click-full-pub");
+            c.style.display = "block";
+            d.style.display = "none";
             publicationByTopicSpecificInner($("#main-pub-container .subtitle-aux a:first"));
             return true;
         }
@@ -1265,13 +1287,13 @@
                         }, 200);
                     }
 
-                    console.log(realSize);
+                    // console.log(realSize);
                     var realWinSize = getRealWindowSize();
                     var winWidth = realWinSize.width;
                     var winHeight = realWinSize.height;
                     var widthRatio = winWidth / imgWidth;
                     var heightRatio = winHeight / imgHeight;
-                    console.log(realWinSize);
+                    // console.log(realWinSize);
                     if (widthRatio > heightRatio) {
                         bgImg.width(imgWidth * widthRatio + 'px').height(imgHeight * widthRatio + 'px').css({
                             'top':
@@ -1321,8 +1343,8 @@
                 })
             };
 
-            fullBg();
-            animatedLink(400);
+            // fullBg();
+            // animatedLink(400);
 
             allPublications = $("#main-pub-card-container .pub-card");
             allTopicsLink = $("#main-pub-container .subtitle-aux a");
