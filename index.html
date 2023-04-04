@@ -1158,7 +1158,7 @@
             for (var pubId = 0; pubId < allPublications.length; pubId++) {
                 if (pubId == 0 || $(allPublications[pubId - 1]).data("year") != $(allPublications[pubId]).data("year")) {
                     var year = $(allPublications[pubId]).data("year");
-                    $("#main-pub-card-container").append($("<h5 id='year-" + year.toString() + "'>" + year.toString() + "</h5>"));
+                    $("#main-pub-card-container").append($("<h5 style='margin-top:10px' id='year-" + year.toString() + "'>" + year.toString() + "</h5>"));
                 }
                 $("#main-pub-card-container").append(allPublications[pubId]);
             }
