@@ -119,6 +119,10 @@ nav {
         padding-top: 1px;
         padding-bottom: 1px
     }
+
+    .pub-card  {
+        padding-left: 10px;
+    }
 }
 
 /* .pub-card{
