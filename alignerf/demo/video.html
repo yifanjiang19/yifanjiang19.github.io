@@ -37,13 +37,8 @@
 </style>
 <div align="center" >
   <div  style="margin-top: 100px;">
-  <h1>AligNeRF
+  <h1>AligNeRF: High-Fidelity Neural Radiance Fields via Alignment-Aware Training
   </h1>
-  <!-- <p>We suggest the viewer play only one video each time, since playing multiple high-resolution videos may cause stuck.</p>
-  <p>Due to the size limitation requested by CVPR, we only show 4 RGB frames, while more demos will be available on our final version</p>
-  <div>
-  <p>If you cannot see videos from the website, try with:  1) Use Chrome with newest version.  2) Open .mp4 file offline using players that support mp4 format, including <a href="https://www.videolan.org/vlc/">VLC player</a> or windows media player.  </p>
-  </div> -->
 </div>
 
 
@@ -53,6 +48,9 @@
     </div>
     <video controls autoplay id="home1" width="600" height="450" controls="controls">
       <source type="video/mp4" src="../videos/bicycle/rgb.mp4" />
+    </video>
+    <video controls autoplay id="home2" width="600" height="450" controls="controls">
+      <source type="video/mp4" src="../videos/bicycle/distance_median.mp4" />
     </video>
     <div class="clear"></div>
 
@@ -65,6 +63,9 @@
     <video controls autoplay id="home1" width="600" height="450" controls="controls">
       <source type="video/mp4" src="../videos/gardenvase/rgb.mp4" />
     </video>
+    <video controls autoplay id="home2" width="600" height="450" controls="controls">
+      <source type="video/mp4" src="../videos/gardenvase/distance_median.mp4" />
+    </video>
     <div class="clear"></div>
   </div>
   <div id="wrapper">
@@ -74,9 +75,24 @@
     <video controls autoplay id="home1" width="600" height="450" controls="controls">
       <source type="video/mp4" src="../videos/stump/rgb.mp4" />
     </video>
+    <video controls autoplay id="home2" width="600" height="450" controls="controls">
+      <source type="video/mp4" src="../videos/stump/distance_median.mp4" />
+    </video>
     <div class="clear"></div>
   </div>
-
+  
+  <div id="wrapper">
+    <div class="overlayText">
+      <p id="topText">flowerbed</p>
+    </div>
+    <video controls autoplay id="home1" width="600" height="450" controls="controls">
+      <source type="video/mp4" src="../videos/flowerbed/rgb.mp4" />
+    </video>
+    <video controls autoplay id="home2" width="600" height="450" controls="controls">
+      <source type="video/mp4" src="../videos/flowerbed/distance_median.mp4" />
+    </video>
+    <div class="clear"></div>
+  </div>
 
   <div id="wrapper">
     <div class="overlayText">
@@ -84,6 +100,9 @@
     </div>
     <video controls autoplay id="home1" width="600" height="450" controls="controls">
       <source type="video/mp4" src="../videos/treehill/rgb.mp4" />
+    </video>
+    <video controls autoplay id="home2" width="600" height="450" controls="controls">
+      <source type="video/mp4" src="../videos/treehill/distance_median.mp4" />
     </video>
     <div class="clear"></div>
   </div>
