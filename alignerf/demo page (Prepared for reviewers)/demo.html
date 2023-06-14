@@ -1,0 +1,1142 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html lang="en">
+<head>
+<title>page_0001.html</title>
+</head>
+<body>
+<style>/* Stylesheet for webpages which compare images in multiple directories. */
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600,700");
+
+/* Elements */
+
+body {
+    margin: 0;
+    background-color: #2e2e2e;
+}
+
+h3 {
+    color: #333;
+    font-family: 'Open Sans', arial, sans-serif;
+}
+
+p {
+    font-family: 'Open Sans', arial, sans-serif;
+}
+
+a {
+    color: #add8ff;
+}
+
+td {
+    text-align: center;
+    color: #fff;
+}
+
+td > p {
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+label {
+    text-align: left;
+}
+
+/* IDs */
+
+#images {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    text-align: center;
+    width: 800px;
+}
+
+#images > .image_wrapper {
+    display: inline-block;
+    margin: 15px;
+    width: 770px;
+}
+
+#logo {
+    display: inline-block;
+    height: 60px;
+    margin-top: 10px;
+    width: 100px;
+}
+
+#logo > .image {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 50px;
+    position: relative;
+}
+
+/* Classes */
+
+.bold {
+    font-weight: bold;
+}
+
+.bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.bottom_circle {
+    z-index: 2;
+}
+
+.checkbox_field {
+  align-items: baseline;
+  display: flex;
+  flex-direction: row;
+}
+
+.comparison_table {
+    border: 2px solid #444;
+    margin: 0 auto;
+}
+
+.comparison {
+    cursor: pointer;
+}
+
+.comparison:hover {
+    box-shadow:0 0 1px 1px #ddd;
+}
+
+.comparisons {
+    height: 82px;
+    margin: 0;
+    padding: 0;
+}
+
+.comparisons_menu {
+    height: 30px;
+}
+
+.comparisons > ul {
+    padding: 10px;
+}
+
+.comparisons > ul li {
+    background-color: #999;
+    border-radius: 7px;
+    color: white;
+    display: inline-block;
+    float: left;
+    font-size: 82.5%;
+    height: 28px;
+    line-height: 1.9;
+    list-style: none;
+    margin: 0 15px 10px 0;
+    padding: 0 12px;
+    text-align: -webkit-match-parent;
+}
+
+.comparisons > ul li.top_active, .top_circle {
+    background-color: #4285f4;
+}
+
+.comparisons > ul li.bottom_active, .bottom_circle {
+    background-color: #db3236;
+}
+
+.header {
+    background: #2e2e2e;
+    border-bottom: 1px solid #e5e5e5;
+    height: 70px;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.hover_images .top_image,.bottom_image {
+    width: 770px;
+}
+
+.image_wrapper > .hover_images {
+    display: inline-block;
+    position: relative;
+}
+
+.linksline {
+    background: #454545;
+    border-bottom: 1px solid #f2f2f2;
+    color: #fff;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    min-height: 28px;
+    overflow: hidden;
+    padding: 0 12px;
+    padding-top: 6px;
+    text-align: center;
+}
+
+.log_info {
+    font-family: 'Open Sans';
+    color: #fff;
+    margin: 10px auto;
+    width: 1200px;
+    font-size: 12px;
+}
+
+.menu {
+    background: #fcfcfc;
+    border-bottom: 1px solid #f2f2f2;
+    color: #444;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    min-height: 28px;
+    overflow: hidden;
+    padding: 0 12px;
+}
+
+.menu > ul {
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    left: 10%;
+    list-style: none;
+    margin: auto;
+    max-width: 1250px;
+    padding: 0;
+    position: relative;
+}
+
+.menu > ul a {
+    display: inline-block;
+    text-decoration: underline;
+}
+
+.menu > ul li {
+    color: #444;
+    display: inline-block;
+    float: left;
+    height: 28px;
+    line-height: 2.4;
+    list-style: none;
+    margin: 0 25px 0 0;
+    text-align: -webkit-match-parent;
+}
+
+.table_header {
+    background: #454545;
+    color: #fff;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.table_cell_input {
+    width: 100%;
+}
+
+.title {
+    left: 10%;
+    position: relative;
+    min-width: 550px;
+    width: 90%;
+}
+
+.title > p {
+    border-left: 1px solid #babcc0;
+    color: #fff;
+    display: inline-block;
+    font-family: 'Open Sans', arial, sans-serif;
+    font-size: 2em;
+    margin: 0;
+    margin-top: 10px;
+    padding-left: 20px;
+    vertical-align: top;
+    width: 800px;
+}
+
+.top {
+    left: 0;
+    position: relative;
+    top: 0;
+    z-index: 2;
+}
+
+.top:hover {
+    opacity: 0;
+}
+
+.top_circle
+.bottom_circle {
+    border-radius: 7.5px;
+    height: 15px;
+    position: absolute;
+    right: 40px;
+    top: 30px;
+    width: 15px;
+}
+
+.top_circle {
+    z-index: 4;
+}
+
+.tag_area > button {
+  display:block;
+  font-size: 1.2em;
+  width: 100%;
+}
+
+.tag_area > .pressed {
+  background-color: gray;
+  border-color: gray;
+}
+</style>
+<div class="header">
+<div class="title">
+<a id="logo">
+<div class="image">
+</div>
+</a>
+<p>Visual Examples Prepared For AligNeRF</p>
+</div>
+</div>
+<body onload="pageInit()">
+<!-- <div class="linksline">
+<a href="page_0001.html" class="page_link">Previous</a>
+  Page 1 of 1  
+<a href="page_0001.html" class="page_link">Next</a>
+</div> -->
+<div class="log_info">
+    <!-- <a style="font-size: 24px;">Visual Examples Prepared For Submission 274</a> <br> -->
+    <ul>
+        <li> <a style="font-size: 18px;">By default these three columns show the results from Baseline (mip-NeRF 360), Ours (AligNeRF), and Ground Truth</a></li>
+        <li><a style="font-size: 18px;">Click each image can flip between different methods and compare the difference</a></li>
+    </ul>
+</div>
+<table class="comparison_table" border="1px" cellspacing="3">
+<tr class="overlay_selection">
+<td align="center">
+<p>On-click overlay: </p>
+<select id="baseline_overlay" onchange="overlaySelectionChanged(this)" data_default_overlay="../ours" data_rel_dir="../baseline">
+<option value="">
+<p>No Overlay</p>
+<option value="../ours" data_ext="jpg" selected="selected">
+<p>ours</p>
+<option value="../ground_truth" data_ext="jpg">
+<p>ground_truth</p>
+</select>
+</td>
+<td align="center">
+<p>On-click overlay: </p>
+<select id="ours_overlay" onchange="overlaySelectionChanged(this)" data_default_overlay="../baseline" data_rel_dir="../ours">
+<option value="">
+<p>No Overlay</p>
+<option value="../baseline" data_ext="jpg" selected="selected">
+<p>baseline</p>
+<option value="../ground_truth" data_ext="jpg">
+<p>ground_truth</p>
+</select>
+</td>
+<td align="center">
+<p>On-click overlay: </p>
+<select id="ground_truth_overlay" onchange="overlaySelectionChanged(this)" data_default_overlay="../ground_truth" data_rel_dir="../ground_truth">
+<option value="">
+<p>No Overlay</p>
+<option value="../baseline" data_ext="jpg">
+<p>baseline</p>
+<option value="../ours" data_ext="jpg">
+<p>ours</p>
+</select>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_000">
+<img src="../baseline/treehill_000.jpg" id="../baseline/treehill_000.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_000" title="baseline / ours">
+<p>treehill_000</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_000">
+<img src="../ours/treehill_000.jpg" id="../ours/treehill_000.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_000" title="ours / baseline">
+<p>treehill_000</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_000">
+<img src="../ground_truth/treehill_000.jpg" id="../ground_truth/treehill_000.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_000&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_000" title="ground_truth / ground_truth">
+<p>treehill_000</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_001">
+<img src="../baseline/treehill_001.jpg" id="../baseline/treehill_001.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_001" title="baseline / ours">
+<p>treehill_001</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_001">
+<img src="../ours/treehill_001.jpg" id="../ours/treehill_001.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_001" title="ours / baseline">
+<p>treehill_001</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_001">
+<img src="../ground_truth/treehill_001.jpg" id="../ground_truth/treehill_001.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_001&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_001" title="ground_truth / ground_truth">
+<p>treehill_001</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_002">
+<img src="../baseline/treehill_002.jpg" id="../baseline/treehill_002.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_002" title="baseline / ours">
+<p>treehill_002</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_002">
+<img src="../ours/treehill_002.jpg" id="../ours/treehill_002.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_002" title="ours / baseline">
+<p>treehill_002</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_002">
+<img src="../ground_truth/treehill_002.jpg" id="../ground_truth/treehill_002.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_002&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_002" title="ground_truth / ground_truth">
+<p>treehill_002</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_003">
+<img src="../baseline/treehill_003.jpg" id="../baseline/treehill_003.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_003" title="baseline / ours">
+<p>treehill_003</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_003">
+<img src="../ours/treehill_003.jpg" id="../ours/treehill_003.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_003" title="ours / baseline">
+<p>treehill_003</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_003">
+<img src="../ground_truth/treehill_003.jpg" id="../ground_truth/treehill_003.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_003&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_003" title="ground_truth / ground_truth">
+<p>treehill_003</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_004">
+<img src="../baseline/treehill_004.jpg" id="../baseline/treehill_004.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_004" title="baseline / ours">
+<p>treehill_004</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_004">
+<img src="../ours/treehill_004.jpg" id="../ours/treehill_004.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_004" title="ours / baseline">
+<p>treehill_004</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_004">
+<img src="../ground_truth/treehill_004.jpg" id="../ground_truth/treehill_004.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_004&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_004" title="ground_truth / ground_truth">
+<p>treehill_004</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_005">
+<img src="../baseline/treehill_005.jpg" id="../baseline/treehill_005.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_005" title="baseline / ours">
+<p>treehill_005</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_005">
+<img src="../ours/treehill_005.jpg" id="../ours/treehill_005.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_005" title="ours / baseline">
+<p>treehill_005</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_005">
+<img src="../ground_truth/treehill_005.jpg" id="../ground_truth/treehill_005.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_005&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_005" title="ground_truth / ground_truth">
+<p>treehill_005</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_006">
+<img src="../baseline/treehill_006.jpg" id="../baseline/treehill_006.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_006" title="baseline / ours">
+<p>treehill_006</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_006">
+<img src="../ours/treehill_006.jpg" id="../ours/treehill_006.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_006" title="ours / baseline">
+<p>treehill_006</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_006">
+<img src="../ground_truth/treehill_006.jpg" id="../ground_truth/treehill_006.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_006&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_006" title="ground_truth / ground_truth">
+<p>treehill_006</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_007">
+<img src="../baseline/treehill_007.jpg" id="../baseline/treehill_007.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_007" title="baseline / ours">
+<p>treehill_007</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_007">
+<img src="../ours/treehill_007.jpg" id="../ours/treehill_007.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_007" title="ours / baseline">
+<p>treehill_007</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_007">
+<img src="../ground_truth/treehill_007.jpg" id="../ground_truth/treehill_007.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_007&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_007" title="ground_truth / ground_truth">
+<p>treehill_007</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_008">
+<img src="../baseline/treehill_008.jpg" id="../baseline/treehill_008.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_008" title="baseline / ours">
+<p>treehill_008</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_008">
+<img src="../ours/treehill_008.jpg" id="../ours/treehill_008.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_008" title="ours / baseline">
+<p>treehill_008</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_008">
+<img src="../ground_truth/treehill_008.jpg" id="../ground_truth/treehill_008.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_008&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_008" title="ground_truth / ground_truth">
+<p>treehill_008</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_009">
+<img src="../baseline/treehill_009.jpg" id="../baseline/treehill_009.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_009" title="baseline / ours">
+<p>treehill_009</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_009">
+<img src="../ours/treehill_009.jpg" id="../ours/treehill_009.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_009" title="ours / baseline">
+<p>treehill_009</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_009">
+<img src="../ground_truth/treehill_009.jpg" id="../ground_truth/treehill_009.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_009&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_009" title="ground_truth / ground_truth">
+<p>treehill_009</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_010">
+<img src="../baseline/treehill_010.jpg" id="../baseline/treehill_010.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_010" title="baseline / ours">
+<p>treehill_010</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_010">
+<img src="../ours/treehill_010.jpg" id="../ours/treehill_010.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_010" title="ours / baseline">
+<p>treehill_010</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_010">
+<img src="../ground_truth/treehill_010.jpg" id="../ground_truth/treehill_010.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_010&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_010" title="ground_truth / ground_truth">
+<p>treehill_010</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_011">
+<img src="../baseline/treehill_011.jpg" id="../baseline/treehill_011.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_011" title="baseline / ours">
+<p>treehill_011</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_011">
+<img src="../ours/treehill_011.jpg" id="../ours/treehill_011.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_011" title="ours / baseline">
+<p>treehill_011</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_011">
+<img src="../ground_truth/treehill_011.jpg" id="../ground_truth/treehill_011.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_011&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_011" title="ground_truth / ground_truth">
+<p>treehill_011</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_012">
+<img src="../baseline/treehill_012.jpg" id="../baseline/treehill_012.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_012" title="baseline / ours">
+<p>treehill_012</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_012">
+<img src="../ours/treehill_012.jpg" id="../ours/treehill_012.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_012" title="ours / baseline">
+<p>treehill_012</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_012">
+<img src="../ground_truth/treehill_012.jpg" id="../ground_truth/treehill_012.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_012&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_012" title="ground_truth / ground_truth">
+<p>treehill_012</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_013">
+<img src="../baseline/treehill_013.jpg" id="../baseline/treehill_013.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_013" title="baseline / ours">
+<p>treehill_013</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_013">
+<img src="../ours/treehill_013.jpg" id="../ours/treehill_013.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_013" title="ours / baseline">
+<p>treehill_013</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_013">
+<img src="../ground_truth/treehill_013.jpg" id="../ground_truth/treehill_013.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_013&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_013" title="ground_truth / ground_truth">
+<p>treehill_013</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_014">
+<img src="../baseline/treehill_014.jpg" id="../baseline/treehill_014.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_014" title="baseline / ours">
+<p>treehill_014</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_014">
+<img src="../ours/treehill_014.jpg" id="../ours/treehill_014.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_014" title="ours / baseline">
+<p>treehill_014</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_014">
+<img src="../ground_truth/treehill_014.jpg" id="../ground_truth/treehill_014.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_014&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_014" title="ground_truth / ground_truth">
+<p>treehill_014</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_015">
+<img src="../baseline/treehill_015.jpg" id="../baseline/treehill_015.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_015" title="baseline / ours">
+<p>treehill_015</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_015">
+<img src="../ours/treehill_015.jpg" id="../ours/treehill_015.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_015" title="ours / baseline">
+<p>treehill_015</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_015">
+<img src="../ground_truth/treehill_015.jpg" id="../ground_truth/treehill_015.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_015&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_015" title="ground_truth / ground_truth">
+<p>treehill_015</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_016">
+<img src="../baseline/treehill_016.jpg" id="../baseline/treehill_016.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_016" title="baseline / ours">
+<p>treehill_016</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_016">
+<img src="../ours/treehill_016.jpg" id="../ours/treehill_016.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_016" title="ours / baseline">
+<p>treehill_016</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_016">
+<img src="../ground_truth/treehill_016.jpg" id="../ground_truth/treehill_016.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_016&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_016" title="ground_truth / ground_truth">
+<p>treehill_016</p>
+</a>
+</td>
+</tr>
+<tr class="table_header">
+<td align="center" class="../baseline">
+<p>baseline</p>
+<p>(ours)</p>
+</td>
+<td align="center" class="../ours">
+<p>ours</p>
+<p>(baseline)</p>
+</td>
+<td align="center" class="../ground_truth">
+<p>ground_truth</p>
+<p>(ground_truth)</p>
+</td>
+</tr>
+<tr>
+<td>
+<a name="baseline_treehill_017">
+<img src="../baseline/treehill_017.jpg" id="../baseline/treehill_017.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../baseline&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../baseline&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../baseline&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../baseline&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_017" title="baseline / ours">
+<p>treehill_017</p>
+</a>
+</td>
+<td>
+<a name="ours_treehill_017">
+<img src="../ours/treehill_017.jpg" id="../ours/treehill_017.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ours&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ours&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ours&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ours&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_017" title="ours / baseline">
+<p>treehill_017</p>
+</a>
+</td>
+<td>
+<a name="ground_truth_treehill_017">
+<img src="../ground_truth/treehill_017.jpg" id="../ground_truth/treehill_017.jpg" style="max-width:750px" draggable="false" onmousedown="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(1))" onmouseup="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(0))" oncontextmenu="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(0))" onmouseout="updateImage(this,&quot;../ground_truth&quot;,&quot;treehill_017&quot;,&quot;jpg&quot;,Boolean(0))" />
+</a>
+<a class="self_link" href="single_image.html?stem=treehill_017" title="ground_truth / ground_truth">
+<p>treehill_017</p>
+</a>
+</td>
+</tr>
+</table>
+<!-- <div class="linksline">
+<a href="page_0001.html" class="page_link">Previous</a>
+  Page 1 of 1  
+<a href="page_0001.html" class="page_link">Next</a>
+</div> -->
+<script>(function(){/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+'use strict';function ba(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}var n="function"==typeof Object.defineProperties?Object.defineProperty:function(a,b,c){if(a==Array.prototype||a==Object.prototype)return a;a[b]=c.value;return a};
+function ca(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var c=a[b];if(c&&c.Math==Math)return c}throw Error("Cannot find global object");}var p=ca(this);function q(a,b){if(b)a:{var c=p;a=a.split(".");for(var d=0;d<a.length-1;d++){var g=a[d];if(!(g in c))break a;c=c[g]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&null!=b&&n(c,a,{configurable:!0,writable:!0,value:b})}}
+q("Symbol",function(a){function b(k){if(this instanceof b)throw new TypeError("Symbol is not a constructor");return new c(d+(k||"")+"_"+g++,k)}function c(k,e){this.g=k;n(this,"description",{configurable:!0,writable:!0,value:e})}if(a)return a;c.prototype.toString=function(){return this.g};var d="jscomp_symbol_"+(1E9*Math.random()>>>0)+"_",g=0;return b});
+q("Symbol.iterator",function(a){if(a)return a;a=Symbol("Symbol.iterator");for(var b="Array Int8Array Uint8Array Uint8ClampedArray Int16Array Uint16Array Int32Array Uint32Array Float32Array Float64Array".split(" "),c=0;c<b.length;c++){var d=p[b[c]];"function"===typeof d&&"function"!=typeof d.prototype[a]&&n(d.prototype,a,{configurable:!0,writable:!0,value:function(){return da(ba(this))}})}return a});function da(a){a={next:a};a[Symbol.iterator]=function(){return this};return a}
+function t(a){var b="undefined"!=typeof Symbol&&Symbol.iterator&&a[Symbol.iterator];return b?b.call(a):{next:ba(a)}}function ea(a){for(var b,c=[];!(b=a.next()).done;)c.push(b.value);return c}var fa="function"==typeof Object.create?Object.create:function(a){function b(){}b.prototype=a;return new b},v;
+if("function"==typeof Object.setPrototypeOf)v=Object.setPrototypeOf;else{var w;a:{var ha={a:!0},ia={};try{ia.__proto__=ha;w=ia.a;break a}catch(a){}w=!1}v=w?function(a,b){a.__proto__=b;if(a.__proto__!==b)throw new TypeError(a+" is not extensible");return a}:null}var ja=v;
+function x(a,b){a.prototype=fa(b.prototype);a.prototype.constructor=a;if(ja)ja(a,b);else for(var c in b)if("prototype"!=c)if(Object.defineProperties){var d=Object.getOwnPropertyDescriptor(b,c);d&&Object.defineProperty(a,c,d)}else a[c]=b[c];a.B=b.prototype}function y(){this.i=!1;this.g=null;this.u=void 0;this.l=1;this.s=0;this.h=null}function z(a){if(a.i)throw new TypeError("Generator is already running");a.i=!0}y.prototype.m=function(a){this.u=a};function A(a,b){a.h={K:b,L:!0};a.l=a.s}
+y.prototype.return=function(a){this.h={return:a};this.l=this.s};function ka(a){this.g=new y;this.h=a}function la(a,b){z(a.g);var c=a.g.g;if(c)return C(a,"return"in c?c["return"]:function(d){return{value:d,done:!0}},b,a.g.return);a.g.return(b);return D(a)}
+function C(a,b,c,d){try{var g=b.call(a.g.g,c);if(!(g instanceof Object))throw new TypeError("Iterator result "+g+" is not an object");if(!g.done)return a.g.i=!1,g;var k=g.value}catch(e){return a.g.g=null,A(a.g,e),D(a)}a.g.g=null;d.call(a.g,k);return D(a)}function D(a){for(;a.g.l;)try{var b=a.h(a.g);if(b)return a.g.i=!1,{value:b.value,done:!1}}catch(c){a.g.u=void 0,A(a.g,c)}a.g.i=!1;if(a.g.h){b=a.g.h;a.g.h=null;if(b.L)throw b.K;return{value:b.return,done:!0}}return{value:void 0,done:!0}}
+function ma(a){this.next=function(b){z(a.g);a.g.g?b=C(a,a.g.g.next,b,a.g.m):(a.g.m(b),b=D(a));return b};this.throw=function(b){z(a.g);a.g.g?b=C(a,a.g.g["throw"],b,a.g.m):(A(a.g,b),b=D(a));return b};this.return=function(b){return la(a,b)};this[Symbol.iterator]=function(){return this}}function na(a){function b(d){return a.next(d)}function c(d){return a.throw(d)}new Promise(function(d,g){function k(e){e.done?d(e.value):Promise.resolve(e.value).then(b,c).then(k,g)}k(a.next())})}
+q("Promise",function(a){function b(e){this.h=0;this.i=void 0;this.g=[];this.u=!1;var f=this.l();try{e(f.resolve,f.reject)}catch(h){f.reject(h)}}function c(){this.g=null}function d(e){return e instanceof b?e:new b(function(f){f(e)})}if(a)return a;c.prototype.h=function(e){if(null==this.g){this.g=[];var f=this;this.i(function(){f.m()})}this.g.push(e)};var g=p.setTimeout;c.prototype.i=function(e){g(e,0)};c.prototype.m=function(){for(;this.g&&this.g.length;){var e=this.g;this.g=[];for(var f=0;f<e.length;++f){var h=
+e[f];e[f]=null;try{h()}catch(l){this.l(l)}}}this.g=null};c.prototype.l=function(e){this.i(function(){throw e;})};b.prototype.l=function(){function e(l){return function(m){h||(h=!0,l.call(f,m))}}var f=this,h=!1;return{resolve:e(this.G),reject:e(this.m)}};b.prototype.G=function(e){if(e===this)this.m(new TypeError("A Promise cannot resolve to itself"));else if(e instanceof b)this.I(e);else{a:switch(typeof e){case "object":var f=null!=e;break a;case "function":f=!0;break a;default:f=!1}f?this.F(e):this.s(e)}};
+b.prototype.F=function(e){var f=void 0;try{f=e.then}catch(h){this.m(h);return}"function"==typeof f?this.J(f,e):this.s(e)};b.prototype.m=function(e){this.C(2,e)};b.prototype.s=function(e){this.C(1,e)};b.prototype.C=function(e,f){if(0!=this.h)throw Error("Cannot settle("+e+", "+f+"): Promise already settled in state"+this.h);this.h=e;this.i=f;2===this.h&&this.H();this.O()};b.prototype.H=function(){var e=this;g(function(){if(e.P()){var f=p.console;"undefined"!==typeof f&&f.error(e.i)}},1)};b.prototype.P=
+function(){if(this.u)return!1;var e=p.CustomEvent,f=p.Event,h=p.dispatchEvent;if("undefined"===typeof h)return!0;"function"===typeof e?e=new e("unhandledrejection",{cancelable:!0}):"function"===typeof f?e=new f("unhandledrejection",{cancelable:!0}):(e=p.document.createEvent("CustomEvent"),e.initCustomEvent("unhandledrejection",!1,!0,e));e.promise=this;e.reason=this.i;return h(e)};b.prototype.O=function(){if(null!=this.g){for(var e=0;e<this.g.length;++e)k.h(this.g[e]);this.g=null}};var k=new c;b.prototype.I=
+function(e){var f=this.l();e.v(f.resolve,f.reject)};b.prototype.J=function(e,f){var h=this.l();try{e.call(f,h.resolve,h.reject)}catch(l){h.reject(l)}};b.prototype.then=function(e,f){function h(u,B){return"function"==typeof u?function(Z){try{l(u(Z))}catch(aa){m(aa)}}:B}var l,m,r=new b(function(u,B){l=u;m=B});this.v(h(e,l),h(f,m));return r};b.prototype.catch=function(e){return this.then(void 0,e)};b.prototype.v=function(e,f){function h(){switch(l.h){case 1:e(l.i);break;case 2:f(l.i);break;default:throw Error("Unexpected state: "+
+l.h);}}var l=this;null==this.g?k.h(h):this.g.push(h);this.u=!0};b.resolve=d;b.reject=function(e){return new b(function(f,h){h(e)})};b.race=function(e){return new b(function(f,h){for(var l=t(e),m=l.next();!m.done;m=l.next())d(m.value).v(f,h)})};b.all=function(e){var f=t(e),h=f.next();return h.done?d([]):new b(function(l,m){function r(Z){return function(aa){u[Z]=aa;B--;0==B&&l(u)}}var u=[],B=0;do u.push(void 0),B++,d(h.value).v(r(u.length-1),m),h=f.next();while(!h.done)})};return b});
+function E(a,b){return Object.prototype.hasOwnProperty.call(a,b)}
+q("WeakMap",function(a){function b(h){this.g=(f+=Math.random()+1).toString();if(h){h=t(h);for(var l;!(l=h.next()).done;)l=l.value,this.set(l[0],l[1])}}function c(){}function d(h){var l=typeof h;return"object"===l&&null!==h||"function"===l}function g(h){if(!E(h,e)){var l=new c;n(h,e,{value:l})}}function k(h){var l=Object[h];l&&(Object[h]=function(m){if(m instanceof c)return m;Object.isExtensible(m)&&g(m);return l(m)})}if(function(){if(!a||!Object.seal)return!1;try{var h=Object.seal({}),l=Object.seal({}),
+m=new a([[h,2],[l,3]]);if(2!=m.get(h)||3!=m.get(l))return!1;m.delete(h);m.set(l,4);return!m.has(h)&&4==m.get(l)}catch(r){return!1}}())return a;var e="$jscomp_hidden_"+Math.random();k("freeze");k("preventExtensions");k("seal");var f=0;b.prototype.set=function(h,l){if(!d(h))throw Error("Invalid WeakMap key");g(h);if(!E(h,e))throw Error("WeakMap key fail: "+h);h[e][this.g]=l;return this};b.prototype.get=function(h){return d(h)&&E(h,e)?h[e][this.g]:void 0};b.prototype.has=function(h){return d(h)&&E(h,
+e)&&E(h[e],this.g)};b.prototype.delete=function(h){return d(h)&&E(h,e)&&E(h[e],this.g)?delete h[e][this.g]:!1};return b});
+q("Map",function(a){function b(){var f={};return f.o=f.next=f.head=f}function c(f,h){var l=f.g;return da(function(){if(l){for(;l.head!=f.g;)l=l.o;for(;l.next!=l.head;)return l=l.next,{done:!1,value:h(l)};l=null}return{done:!0,value:void 0}})}function d(f,h){var l=h&&typeof h;"object"==l||"function"==l?k.has(h)?l=k.get(h):(l=""+ ++e,k.set(h,l)):l="p_"+h;var m=f.h[l];if(m&&E(f.h,l))for(f=0;f<m.length;f++){var r=m[f];if(h!==h&&r.key!==r.key||h===r.key)return{id:l,list:m,index:f,j:r}}return{id:l,list:m,
+index:-1,j:void 0}}function g(f){this.h={};this.g=b();this.size=0;if(f){f=t(f);for(var h;!(h=f.next()).done;)h=h.value,this.set(h[0],h[1])}}if(function(){if(!a||"function"!=typeof a||!a.prototype.entries||"function"!=typeof Object.seal)return!1;try{var f=Object.seal({x:4}),h=new a(t([[f,"s"]]));if("s"!=h.get(f)||1!=h.size||h.get({x:4})||h.set({x:4},"t")!=h||2!=h.size)return!1;var l=h.entries(),m=l.next();if(m.done||m.value[0]!=f||"s"!=m.value[1])return!1;m=l.next();return m.done||4!=m.value[0].x||
+"t"!=m.value[1]||!l.next().done?!1:!0}catch(r){return!1}}())return a;var k=new WeakMap;g.prototype.set=function(f,h){f=0===f?0:f;var l=d(this,f);l.list||(l.list=this.h[l.id]=[]);l.j?l.j.value=h:(l.j={next:this.g,o:this.g.o,head:this.g,key:f,value:h},l.list.push(l.j),this.g.o.next=l.j,this.g.o=l.j,this.size++);return this};g.prototype.delete=function(f){f=d(this,f);return f.j&&f.list?(f.list.splice(f.index,1),f.list.length||delete this.h[f.id],f.j.o.next=f.j.next,f.j.next.o=f.j.o,f.j.head=null,this.size--,
+!0):!1};g.prototype.clear=function(){this.h={};this.g=this.g.o=b();this.size=0};g.prototype.has=function(f){return!!d(this,f).j};g.prototype.get=function(f){return(f=d(this,f).j)&&f.value};g.prototype.entries=function(){return c(this,function(f){return[f.key,f.value]})};g.prototype.keys=function(){return c(this,function(f){return f.key})};g.prototype.values=function(){return c(this,function(f){return f.value})};g.prototype.forEach=function(f,h){for(var l=this.entries(),m;!(m=l.next()).done;)m=m.value,
+f.call(h,m[1],m[0],this)};g.prototype[Symbol.iterator]=g.prototype.entries;var e=0;return g});
+q("String.prototype.endsWith",function(a){return a?a:function(b,c){if(null==this)throw new TypeError("The 'this' value for String.prototype.endsWith must not be null or undefined");if(b instanceof RegExp)throw new TypeError("First argument to String.prototype.endsWith must not be a regular expression");void 0===c&&(c=this.length);c=Math.max(0,Math.min(c|0,this.length));for(var d=b.length;0<d&&0<c;)if(this[--c]!=b[--d])return!1;return 0>=d}});
+q("Array.from",function(a){return a?a:function(b,c,d){c=null!=c?c:function(f){return f};var g=[],k="undefined"!=typeof Symbol&&Symbol.iterator&&b[Symbol.iterator];if("function"==typeof k){b=k.call(b);for(var e=0;!(k=b.next()).done;)g.push(c.call(d,k.value,e++))}else for(k=b.length,e=0;e<k;e++)g.push(c.call(d,b[e],e));return g}});q("Object.entries",function(a){return a?a:function(b){var c=[],d;for(d in b)E(b,d)&&c.push([d,b[d]]);return c}});
+function oa(a,b){a instanceof String&&(a+="");var c=0,d=!1,g={next:function(){if(!d&&c<a.length){var k=c++;return{value:b(k,a[k]),done:!1}}d=!0;return{done:!0,value:void 0}}};g[Symbol.iterator]=function(){return g};return g}q("Array.prototype.entries",function(a){return a?a:function(){return oa(this,function(b,c){return[b,c]})}});var F=this||self;function pa(a){var b=typeof a;return"object"==b&&null!=a||"function"==b}
+function G(a,b){a=a.split(".");var c=F;a[0]in c||"undefined"==typeof c.execScript||c.execScript("var "+a[0]);for(var d;a.length&&(d=a.shift());)a.length||void 0===b?c[d]&&c[d]!==Object.prototype[d]?c=c[d]:c=c[d]={}:c[d]=b}function qa(a,b){function c(){}c.prototype=b.prototype;a.B=b.prototype;a.prototype=new c;a.prototype.constructor=a;a.R=function(d,g,k){for(var e=Array(arguments.length-2),f=2;f<arguments.length;f++)e[f-2]=arguments[f];return b.prototype[g].apply(d,e)}}function ra(a){return a};function sa(a){var b=document.createElement("textarea");b.style.position="fixed";b.style.top="0";b.style.left="0";b.style.background="transparent";b.value=a;document.body.appendChild(b);b.select();document.execCommand("copy");document.body.removeChild(b)}G("copyTextToClipboard",sa);G("copyInnerHTMLToClipboard",function(a){sa(a.innerHTML)});function H(){var a={};window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(b,c,d){a[c]=d});return a}function I(a,b){-1<window.location.href.indexOf(a)&&(b=H()[a]);return b}function ta(a,b,c){var d=0,g=!1;a=a.replace(/([?&]+)([^=&]+)=([^&]*)/gi,function(k,e,f){d++;return f==b?(g=!0,c?e+b+"="+c:""):k});!g&&c&&(a=a+(0==d?"?":"&")+b+"="+c);return a}function ua(a){var b=H(),c;for(c in b)a=ta(a,c,b[c]);return a}
+function va(a,b){a=ta(window.location.href,a,b);window.history.replaceState(null,"",a)}G("getAllUrlParams",H);G("getUrlParam",I);G("updateUrlParam",ta);G("copyCurrentUrlParams",ua);G("updateWindowUrlParam",va);var wa=Array.prototype.indexOf?function(a,b){return Array.prototype.indexOf.call(a,b,void 0)}:function(a,b){if("string"===typeof a)return"string"!==typeof b||1!=b.length?-1:a.indexOf(b,0);for(var c=0;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1};var J;function xa(){if(void 0===J){var a=null,b=F.trustedTypes;if(b&&b.createPolicy){try{a=b.createPolicy("goog#html",{createHTML:ra,createScript:ra,createScriptURL:ra})}catch(c){F.console&&F.console.error(c.message)}J=a}else J=a}return J};function K(a,b){this.i=b===ya?a:""}K.prototype.h=!0;K.prototype.g=function(){return this.i.toString()};K.prototype.toString=function(){return this.i+""};var ya={};var za=String.prototype.trim?function(a){return a.trim()}:function(a){return/^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1]};
+function Aa(){var a=L(),b="";if(M()?"Windows"===N.platform:O("Windows"))b=/Windows (?:NT|Phone) ([0-9.]+)/,b=(a=b.exec(a))?a[1]:"0.0";else if(Ba()||O("iPad")||O("iPod"))b=/(?:iPhone|iPod|iPad|CPU)\s+OS\s+(\S+)/,b=(a=b.exec(a))&&a[1].replace(/_/g,".");else if(M()?"macOS"===N.platform:O("Macintosh"))b=/Mac OS X ([0-9_.]+)/,b=(a=b.exec(a))?a[1].replace(/_/g,"."):"10";else if(-1!=L().toLowerCase().indexOf("kaios"))b=/(?:KaiOS)\/(\S+)/i,b=(a=b.exec(a))&&a[1];else if(M()?"Android"===N.platform:O("Android"))b=
+/Android\s+([^\);]+)(\)|;)/,b=(a=b.exec(a))&&a[1];else if(M()?"Chrome OS"===N.platform:O("CrOS"))b=/(?:CrOS\s+(?:i686|x86_64)\s+([0-9.]+))/,b=(a=b.exec(a))&&a[1];a=0;b=za(String(b||"")).split(".");for(var c=za("16").split("."),d=Math.max(b.length,c.length),g=0;0==a&&g<d;g++){var k=b[g]||"",e=c[g]||"";do{k=/(\d*)(\D*)(.*)/.exec(k)||["","","",""];e=/(\d*)(\D*)(.*)/.exec(e)||["","","",""];if(0==k[0].length&&0==e[0].length)break;a=Ca(0==k[1].length?0:parseInt(k[1],10),0==e[1].length?0:parseInt(e[1],10))||
+Ca(0==k[2].length,0==e[2].length)||Ca(k[2],e[2]);k=k[3];e=e[3]}while(0==a)}return a}function Ca(a,b){return a<b?-1:a>b?1:0};function P(a,b){this.i=b===Da?a:""}P.prototype.h=!0;P.prototype.g=function(){return this.i.toString()};P.prototype.toString=function(){return this.i.toString()};function Ea(a){return a instanceof P&&a.constructor===P?a.i:"type_error:SafeUrl"}var Fa=/^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i,Da={};function L(){var a=F.navigator;return a&&(a=a.userAgent)?a:""}var N;N=null;function Ga(a){var b=N;return b?b.brands.some(function(c){return(c=c.brand)&&-1!=c.indexOf(a)}):!1}function O(a){return-1!=L().indexOf(a)};function Q(){var a=N;return!!a&&0<a.brands.length}function Ha(){return Q()?Ga("Chromium"):(O("Chrome")||O("CriOS"))&&!(Q()?0:O("Edge"))||O("Silk")};var Ia={};function R(a,b,c){this.i=c===Ia?a:"";this.h=!0}R.prototype.g=function(){return this.i.toString()};R.prototype.toString=function(){return this.i.toString()};var Ja=/^[\w+/_-]+[=]{0,2}$/;function Ka(){var a=F.document;return a.querySelector?(a=a.querySelector("script[nonce]"))&&(a=a.nonce||a.getAttribute("nonce"))&&Ja.test(a)?a:"":""};function La(a){a=document.getElementById(a.replace("../","")+"_overlay");a=a.options[a.selectedIndex];var b={};b.dir=a.value;b.ext=a.getAttribute("data_ext");return b}
+function Ma(a){var b=a.options[a.selectedIndex].value,c=a.id,d=a.getAttribute("data_rel_dir"),g=d.replace("../",""),k=a.selectedIndex;a=a.getAttribute("data_default_overlay");va(c,b===a?"":String(k));k=document.getElementsByClassName(d);for(c=0;c<k.length;c++){for(d=k[c];d.hasChildNodes();)d.removeChild(d.firstChild);a=document.createElement("p");a.innerText=g;d.appendChild(a);""!=b&&(a=document.createElement("p"),a.innerText="("+b.replace("../","")+")",d.appendChild(a))}b=Array.from(document.body.getElementsByClassName("self_link")).concat(Array.from(document.body.getElementsByClassName("page_link")));
+for(c=0;c<b.length;c++)d=b[c],k=ua(d.href),g=d,k instanceof P?d=k:(d=k,d instanceof P||(d="object"==typeof d&&d.h?d.g():String(d),Fa.test(d)||(d="about:invalid#zClosurez"),d=new P(d,Da))),g.href=Ea(d)}G("updateImage",function(a,b,c,d,g){var k=new Image;"PLACEHOLDER_IMAGE_STEM"==c&&(c=I("stem","NO_STEM_SPECIFIED"));var e=La(b);b=(g?e.dir:b)+"/"+c+"."+(g?e.ext:d);k.onload=function(){a.src=k.src};k.src=b});
+G("updateVideo",function(a,b,c,d,g){"PLACEHOLDER_IMAGE_STEM"==c&&(c=I("stem","NO_STEM_SPECIFIED"));var k=La(b);a.src=(g?k.dir:b)+"/"+c+"."+(g?k.ext:d)});G("overlaySelectionChanged",Ma);
+G("pageInit",function(){var a=I("stem","");""!=a&&(document.title=a);for(var b=document.getElementsByTagName("img"),c=0;c<b.length;c++){var d=b[c];d.src=d.id.replace(/PLACEHOLDER_IMAGE_STEM/g,a)}b=document.getElementsByTagName("video");for(c=0;c<b.length;c++)d=b[c],d.src=d.id.replace(/PLACEHOLDER_IMAGE_STEM/g,a);b=document.getElementsByTagName("p");for(c=0;c<b.length;c++)b[c].innerText=b[c].innerText.replace(/PLACEHOLDER_IMAGE_STEM/g,a);a=H();a=t(Object.entries(a));for(b=a.next();!b.done;b=a.next())c=
+t(b.value),b=c.next().value,c=c.next().value,b.endsWith("overlay")&&(document.getElementById(b).selectedIndex=c);a=document.getElementsByTagName("select");for(b=0;b<a.length;b++)Ma(a[b])});function Na(a,b){this.type=a;this.target=b}Na.prototype.g=function(){};var Oa=function(){if(!F.addEventListener||!Object.defineProperty)return!1;var a=!1,b=Object.defineProperty({},"passive",{get:function(){a=!0}});try{F.addEventListener("test",function(){},b),F.removeEventListener("test",function(){},b)}catch(c){}return a}();function M(){var a=N;return!!a&&!!a.platform}function Ba(){return O("iPhone")&&!O("iPod")&&!O("iPad")};function Pa(a){Pa[" "](a);return a}Pa[" "]=function(){};var Qa=O("Gecko")&&!(-1!=L().toLowerCase().indexOf("webkit")&&!O("Edge"))&&!(O("Trident")||O("MSIE"))&&!O("Edge");function S(a){Na.call(this,a?a.type:"");this.relatedTarget=this.target=null;this.button=this.screenY=this.screenX=this.clientY=this.clientX=0;this.key="";this.metaKey=this.shiftKey=this.altKey=this.ctrlKey=!1;this.state=null;this.pointerId=0;this.pointerType="";this.h=null;if(a){var b=this.type=a.type,c=a.changedTouches&&a.changedTouches.length?a.changedTouches[0]:null;this.target=a.target||a.srcElement;var d=a.relatedTarget;if(d){if(Qa){a:{try{Pa(d.nodeName);var g=!0;break a}catch(k){}g=!1}g||(d=
+null)}}else"mouseover"==b?d=a.fromElement:"mouseout"==b&&(d=a.toElement);this.relatedTarget=d;c?(this.clientX=void 0!==c.clientX?c.clientX:c.pageX,this.clientY=void 0!==c.clientY?c.clientY:c.pageY,this.screenX=c.screenX||0,this.screenY=c.screenY||0):(this.clientX=void 0!==a.clientX?a.clientX:a.pageX,this.clientY=void 0!==a.clientY?a.clientY:a.pageY,this.screenX=a.screenX||0,this.screenY=a.screenY||0);this.button=a.button;this.key=a.key||"";this.ctrlKey=a.ctrlKey;this.altKey=a.altKey;this.shiftKey=
+a.shiftKey;this.metaKey=a.metaKey;this.pointerId=a.pointerId||0;this.pointerType="string"===typeof a.pointerType?a.pointerType:Ra[a.pointerType]||"";this.state=a.state;this.h=a;a.defaultPrevented&&S.B.g.call(this)}}qa(S,Na);var Ra={2:"touch",3:"pen",4:"mouse"};S.prototype.g=function(){S.B.g.call(this);var a=this.h;a.preventDefault?a.preventDefault():a.returnValue=!1};var Sa="closure_listenable_"+(1E6*Math.random()|0);var Ta=0;function Ua(a,b,c,d,g){this.listener=a;this.proxy=null;this.src=b;this.type=c;this.capture=!!d;this.h=g;this.key=++Ta;this.g=this.A=!1}function Va(a){a.g=!0;a.listener=null;a.proxy=null;a.src=null;a.h=null};function Wa(a){this.src=a;this.g={};this.h=0}Wa.prototype.add=function(a,b,c,d,g){var k=a.toString();a=this.g[k];a||(a=this.g[k]=[],this.h++);var e;a:{for(e=0;e<a.length;++e){var f=a[e];if(!f.g&&f.listener==b&&f.capture==!!d&&f.h==g)break a}e=-1}-1<e?(b=a[e],c||(b.A=!1)):(b=new Ua(b,this.src,k,!!d,g),b.A=c,a.push(b));return b};var Xa="closure_lm_"+(1E6*Math.random()|0),Ya={},Za=0;function $a(a,b,c,d,g){if(d&&d.once)ab(a,b,c,d,g);else if(Array.isArray(b))for(var k=0;k<b.length;k++)$a(a,b[k],c,d,g);else c=bb(c),a&&a[Sa]?a.g(b,c,pa(d)?!!d.capture:!!d,g):cb(a,b,c,!1,d,g)}
+function cb(a,b,c,d,g,k){if(!b)throw Error("Invalid event type");var e=pa(g)?!!g.capture:!!g,f=db(a);f||(a[Xa]=f=new Wa(a));c=f.add(b,c,d,e,k);if(!c.proxy){d=eb();c.proxy=d;d.src=a;d.listener=c;if(a.addEventListener)Oa||(g=e),void 0===g&&(g=!1),a.addEventListener(b.toString(),d,g);else if(a.attachEvent)a.attachEvent(fb(b.toString()),d);else if(a.addListener&&a.removeListener)a.addListener(d);else throw Error("addEventListener and attachEvent are unavailable.");Za++}}
+function eb(){function a(c){return b.call(a.src,a.listener,c)}var b=gb;return a}function ab(a,b,c,d,g){if(Array.isArray(b))for(var k=0;k<b.length;k++)ab(a,b[k],c,d,g);else c=bb(c),a&&a[Sa]?a.h(b,c,pa(d)?!!d.capture:!!d,g):cb(a,b,c,!0,d,g)}function fb(a){return a in Ya?Ya[a]:Ya[a]="on"+a}
+function gb(a,b){if(a.g)a=!0;else{b=new S(b,this);var c=a.listener,d=a.h||a.src;if(a.A&&"number"!==typeof a&&a&&!a.g){var g=a.src;if(g&&g[Sa])g.i(a);else{var k=a.type,e=a.proxy;g.removeEventListener?g.removeEventListener(k,e,a.capture):g.detachEvent?g.detachEvent(fb(k),e):g.addListener&&g.removeListener&&g.removeListener(e);Za--;if(k=db(g)){e=a.type;var f;if(f=e in k.g){f=k.g[e];var h=wa(f,a),l;(l=0<=h)&&Array.prototype.splice.call(f,h,1);f=l}f&&(Va(a),0==k.g[e].length&&(delete k.g[e],k.h--));0==
+k.h&&(k.src=null,g[Xa]=null)}else Va(a)}}a=c.call(d,b)}return a}function db(a){a=a[Xa];return a instanceof Wa?a:null}var hb="__closure_events_fn_"+(1E9*Math.random()>>>0);function bb(a){if("function"===typeof a)return a;a[hb]||(a[hb]=function(b){return a.handleEvent(b)});return a[hb]};function ib(){return new IntersectionObserver(function(a,b){a.forEach(function(c){c.isIntersecting&&(c=c.target,c.src=c.getAttribute("data_src"),c.classList.remove("lazy_img"),b.unobserve(c))})},{rootMargin:"400px 400px 400px 400px"})}$a(window,"load",function(){var a=ib();document.querySelectorAll("img.lazy_img").forEach(function(b){a.observe(b)})});/*
+
+ SPDX-License-Identifier: Apache-2.0
+*/
+var T={};function jb(){}function U(a){this.g=a}x(U,jb);U.prototype.toString=function(){return this.g.toString()};function kb(a){var b,c=null==(b=xa())?void 0:b.createHTML(a);return new U(null!=c?c:a,T)};function lb(){}function V(a){this.g=a}x(V,lb);V.prototype.toString=function(){return this.g.toString()};function mb(a){var b,c=null==(b=xa())?void 0:b.createScriptURL(a);return new V(null!=c?c:a,T)}function nb(a){if(a instanceof V)return a.g;throw Error("");}function ob(){var a=nb(pb);var b="undefined"!==typeof window?window.trustedTypes:void 0;b=null!=b?b:null;return(null==b?0:b.isScriptURL(a))?TrustedScriptURL.prototype.toString.apply(a):a};function qb(a){var b=void 0===b?{}:b;a=a.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&apos;");b.T&&(a=a.replace(/(^|[\r\n\t ]) /g,"$1&#160;"));b.S&&(a=a.replace(/(\r\n|\n|\r)/g,"<br>"));b.U&&(a=a.replace(/(\t+)/g,'<span style="white-space:pre">$1</span>'));return kb(a)};function rb(){}function W(a){this.g=a}x(W,rb);W.prototype.toString=function(){return this.g};var sb=new W("about:invalid#zTSz",T);function tb(a){if(a instanceof rb)if(a instanceof W)a=a.g;else throw Error("");else a=Ea(a);return a};function ub(a){this.M=a}function X(a){return new ub(function(b){return b.substr(0,a.length+1).toLowerCase()===a+":"})}var vb=[X("data"),X("http"),X("https"),X("mailto"),X("ftp"),new ub(function(a){return/^[^:]*([/?#]|$)/.test(a)})];function wb(a){var b=ob();if(/#/.test(b))throw Error("");var c=/\?/.test(b)?"&":"?";a.forEach(function(d,g){d=d instanceof Array?d:[d];for(var k=0;k<d.length;k++){var e=d[k];null!==e&&void 0!==e&&(b+=c+encodeURIComponent(g)+"="+encodeURIComponent(String(e)),c="&")}});return mb(b)};function xb(a){var b=document;a=String(a);"application/xhtml+xml"===b.contentType&&(a=a.toLowerCase());return b.createElement(a)};var pb=mb("");function yb(){this.port=this.g=null;this.h=[]}yb.prototype.load=function(){var a=this,b=zb();this.g=Ab(b);Bb().then(function(){a.g&&document.body.appendChild(a.g)});return Cb(this.g,b).then(function(c){for(a.port=c.ports[0];0<a.h.length;)c=a.h.shift(),a.port.postMessage(c.data,c.N)})};
+function Db(a,b){return new Promise(function(c,d){var g=new MessageChannel;g.port1.onmessage=function(m){g.port1.onmessage=null;m=m.data;null!=m.error?d(new EvalError(m.error)):c(m.result)};for(var k=[],e=[],f=[],h=t(null!=b?b:[]),l=h.next();!l.done;l=h.next())l=l.value,k.push(l.name),e.push(l.value),l.D&&f.push(l.value);k={code:'var url=URL.createObjectURL(blob);var a=document.createElement("a");if(!("download" in a)){throw new Error("Downloading not supported on this browser");}a.href=url;a.download=filename;document.body.appendChild(a);a.click();setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},250);',
+paramNames:k,values:e};a.port?a.port.postMessage(k,[g.port2].concat(f instanceof Array?f:ea(t(f)))):a.h.push({data:k,N:[g.port2].concat(f instanceof Array?f:ea(t(f)))})})}function zb(){var a=(window.crypto||window.msCrypto).getRandomValues(new Uint8Array(16));return Array.prototype.join.call(a,".")}function Bb(){return new Promise(function(a){"loading"!=document.readyState?a():ab(document,"DOMContentLoaded",function(){a()})})}
+function Cb(a,b){return new Promise(function(c){function d(g){g.source===a.contentWindow&&g.data===b&&(window.removeEventListener("message",d),c(g))}window.addEventListener("message",d)})}
+function Ab(a){var b=xb("IFRAME");if(!b.sandbox)throw Error("iframe sandboxes not supported");b.sandbox.value="allow-scripts";b.sandbox.supports&&b.sandbox.add&&b.sandbox.supports("allow-downloads")&&b.sandbox.add("allow-downloads");if(""==pb){a='<!DOCTYPE html><body><input type="hidden" id="nonce" value="'+qb(a)+'" /><script nonce="';var c=Ka();a=a+qb(c)+'">/*\n\n Copyright The Closure Library Authors.\n SPDX-License-Identifier: Apache-2.0\n*/\nvar e="function"==typeof Object.create?Object.create:function(a){var b=function(){};b.prototype=a;return new b},g;if("function"==typeof Object.setPrototypeOf)g=Object.setPrototypeOf;else{var h;a:{var l={a:!0},m={};try{m.__proto__=l;h=m.a;break a}catch(a){}h=!1}g=h?function(a,b){a.__proto__=b;if(a.__proto__!==b)throw new TypeError(a+" is not extensible");return a}:null}var n=g,p=function(){for(var a=Number(this),b=[],c=a;c<arguments.length;c++)b[c-a]=arguments[c];return b},q=this||self,r=function(a){return a};var t;var u={},v=function(a,b){this.g=b===u?a:""};v.prototype.toString=function(){return this.g.toString()};/*\n\n SPDX-License-Identifier: Apache-2.0\n*/\nvar w={};var x=function(){},y=function(a){this.h=a};y.prototype=e(x.prototype);y.prototype.constructor=y;if(n)n(y,x);else for(var z in x)if("prototype"!=z)if(Object.defineProperties){var A=Object.getOwnPropertyDescriptor(x,z);A&&Object.defineProperty(y,z,A)}else y[z]=x[z];y.prototype.toString=function(){return this.h.toString()};\nfunction B(a){if(void 0===t){var b=null;var c=q.trustedTypes;if(c&&c.createPolicy)try{b=c.createPolicy("goog#html",{createHTML:r,createScript:r,createScriptURL:r})}catch(d){q.console&&q.console.error(d.message)}t=b}b=t;b=null==b?void 0:b.createScript(a);return new y(null!=b?b:a,w)};function C(a){if(a instanceof x)if(a instanceof y)a=a.h;else throw Error("");else a=a instanceof v&&a.constructor===v?a.g:"type_error:SafeScript";return a};function D(a,b){a.textContent=C(b);var c,d;(c=(b=null==(d=(c=(a.ownerDocument&&a.ownerDocument.defaultView||window).document).querySelector)?void 0:d.call(c,"script[nonce]"))?b.nonce||b.getAttribute("nonce")||"":"")&&a.setAttribute("nonce",c)};var E=function(a){var b=p.apply(1,arguments),c,d;"evalCspCompatiblyData"in window||(window.evalCspCompatiblyData={index:0});var f=window.evalCspCompatiblyData.index++;window.evalCspCompatiblyData[f]={args:b,callback:function(k,F){c=k;d=F}};b=document.createElement("script");b.async=!1;b.setAttribute("data-index",f);f=\'"use strict";\\v(function(){var idx=parseInt((document.currentScript||Array.prototype.slice.call(document.querySelectorAll("head script[data-index]"),-1)[0]).getAttribute("data-index"),10),curEvalData=evalCspCompatiblyData[idx];delete evalCspCompatiblyData[idx];(function(){var callback=curEvalData.callback;try{callback(true,(\'+\nString(C(a))+"\\n));}catch(ex){callback(false, ex);}}).apply(this, curEvalData.args);})()";f=B(f);D(b,f);f=function(k){c=!1;d=k.error||k};window.addEventListener("error",f);document.head.appendChild(b);window.removeEventListener("error",f);document.head.removeChild(b);if(!c)throw d;return d};var G=document.getElementById("nonce"),H=G?G.value:(new URL(location.href)).searchParams.get("nonce");function I(){if(self.origin)return"null"==self.origin;if(""!=location.host)return!1;try{return window.parent.escape(""),!1}catch(a){return!0}}\n(function(){if(!I())throw"sandboxing error";var a=new MessageChannel;a.port1.onmessage=function(b){try{var c=E.apply(null,[B("(function("+b.data.paramNames.join(", ")+") {\\n"+b.data.code+"\\n}).apply(null, arguments)")].concat(b.data.values));b.ports[0].postMessage({result:c})}catch(d){b.ports[0].postMessage({error:d.toString()})}};window.parent.postMessage(H,"*",[a.port2])})();\n\x3c/script></body>';
+c=kb(a);a=mb("data:text/html;charset=UTF-8;base64,"+btoa(c.toString()));if(c instanceof jb)if(c instanceof U)c=c.g;else throw Error("");else c=c instanceof R&&c.constructor===R?c.i:"type_error:SafeHtml";b.srcdoc=c}else a=wb(new Map([["nonce",a]]));a=a instanceof lb?nb(a).toString():(a instanceof K&&a.constructor===K?a.i:"type_error:TrustedResourceUrl").toString();b.src=a;b.style.cssText="height: 0; left: 0; position: absolute; top: 0; width: 0;";b.setAttribute("aria-hidden","true");return b};var Y;function Eb(){this.g=new yb}function Fb(a,b){var c="text/csv";c=void 0===c?"":c;na(new ma(new ka(function(d){Y||(Y=new Eb,Y.g.load());var g=Gb(a,b,c);d.l=0;return{value:g}})))}
+function Gb(a,b,c){var d=Y;a=a instanceof Blob?a:new Blob([a],{type:void 0===c?"":c});if(navigator.msSaveOrOpenBlob)return navigator.msSaveOrOpenBlob(a,b),Hb();if(!(Ba()||O("iPad")||O("iPod"))||0<=Aa()?0:Ha()||!(!O("iPad")&&!O("iPhone")||O("Safari")&&!(Ha()||(Q()?0:O("Coast"))||(Q()?0:O("Opera"))||(Q()?0:O("Edge"))||(Q()?Ga("Microsoft Edge"):O("Edg/"))||(Q()?Ga("Opera"):O("OPR"))||O("Firefox")||O("FxiOS")||O("Silk")||O("Android"))||Ha()||(Q()?0:O("Coast"))||O("Firefox")||O("FxiOS"))&&O("AppleWebKit")){var g=
+new FileReader;g.onload=function(){var k=xb("A");var e=void 0===e?vb:e;a:{var f=String(g.result);e=void 0===e?vb:e;for(var h=0;h<e.length;++h){var l=e[h];if(l instanceof ub&&l.M(f)){f=new W(f,T);break a}}f=void 0}k.href=tb(f||sb);k.download=b;k.click()};g.readAsDataURL(a);return Hb()}return Db(d.g,[{name:"blob",value:a,D:!1},{name:"filename",value:b,D:!1}]).then(function(){return Hb()})}function Hb(){return new Promise(function(a){setTimeout(a,500)})}G("SafeDownloader",Eb);G("saveCSVToDownloads",function(a,b){Fb(a,b)});}).call(this);
+</script>
+</body>
+</html>
