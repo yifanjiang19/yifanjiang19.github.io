@@ -185,6 +185,7 @@
                         <P style="font-style:italic">
                             <b>News</b>: 
                             <ul style="margin-top: -10px;">
+                                <li> <a style="color: red; font-style:italic; font-weight: bold;">I'm looking for a Research Scientist/Engineer job starting from 2024 spring/summer. Feel free to contact me if you have any opening!</a> </li>
                                 <li> I'm awarded a <a href="https://gradschool.utexas.edu/finances/fellowships/deans-supplement" style="color:#706f6f;">University of Texas Graduate Dean’s Prestigious Fellowship.</a></li>
                                 <li>I'm selected to be a recipient of <img style="width:20px; margin-bottom:10px; margin-right:4px" src="./assets/apple_1.png"></img><a href="https://machinelearning.apple.com/updates/apple-scholars-aiml-2023" style="color:#706f6f;">Apple Scholars in AI/ML PhD fellowship 2023.</a> </li>
                             </ul>
@@ -1228,10 +1229,6 @@
 
         function publicationBySelected() {
             var a = $("#publication-by-selected")
-            // if (a.hasClass("activated")) {
-            //     return ;
-            // }
-            // alert("s");
             var b = $("#selected_publication");
             b.text("Selected Publications");
             $("#main-pub-container .subtitle a").removeClass("activated");
@@ -1475,7 +1472,6 @@
             }
 
             $("#publication-by-selected").click();
-            // $("#publication-by-date").click();
             $("#main-pub-card-container").removeClass("hide");
         });
         /* if my "reload" var isn't set locally.. getItem will be false */
