@@ -114,7 +114,7 @@
                 <div class="row align-items-center">
                     <div class="picture">
                         <div class="col-sm-auto col-wrapper">
-                            <img src="./YifanJiang.jpg" class="img-responsive" style="width: 80%;" alt="Yifan Jiang">
+                            <img src="./YifanJiang.jpg" class="img-responsive" style="width: 200px;" alt="Yifan Jiang">
                         </div>
                     </div>
                     <div class="col-sm col-wrapper">
@@ -503,7 +503,8 @@
                                     Zhangyang Wang
                                 </div>
                                 <div><a id="conference">TMLR</a></div>
-                                <a>[Paper]</a>
+                                <a href="https://openreview.net/forum?id=EwJJks2cSa">[Paper]</a>
+                                <a href="https://github.com/VITA-Group/Chasing-Better-DIPs">[Code]</a>
                             </div>
                         </div>
                     </div> 
@@ -1268,11 +1269,11 @@
                     $("#main-pub-card-container").append($("<h5 style='margin-top:10px' id='year-" + year.toString() + "'>" + year.toString() + "</h5>"));
                 }
                 var pub = $(allPublications[pubId]).clone();
-                if (pub.data("selected") == true) {
-                    pub.css({
-                        background: "#FFFFD0",
-                    });
-                }
+                // if (pub.data("selected") == true) {
+                //     pub.css({
+                //         background: "#FFFFD0",
+                //     });
+                // }
                 $("#main-pub-card-container").append(pub);
             }
             var c = $("#click-selected-pub");
