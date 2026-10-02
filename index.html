@@ -64,7 +64,7 @@
 
     <!-- <link href="./academicons.min.css" rel="stylesheet"> -->
 
-    <link href="./style.css" rel="stylesheet">
+    <link href="./style.css?v=16" rel="stylesheet">
     <link href="./font.css" rel="stylesheet">
     <title>Yifan Jiang</title>
 </head>
@@ -149,7 +149,12 @@
                                 <a href="https://twitter.com/YifanJiang17" class="fab fa-twitter"></a>
                                 <a href="https://www.linkedin.com/in/yifanjiang97/" class="fab fa-linkedin"></a>
                                 <a href="https://github.com/yifanjiang19" class="fab fa-github"></a>
-                                <a style="font-size: 22px;" href="./yifan_jiang_cv.pdf">[CV]</a>
+                                <a class="cv-icon-link" href="./yifan_jiang_cv.pdf" aria-label="Curriculum Vitae" title="Curriculum Vitae">
+                                    <svg class="cv-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                        <rect x="1.5" y="1.5" width="21" height="21" rx="3.5" fill="currentColor"></rect>
+                                        <text x="12" y="12.77" fill="#fff" font-family="Arial, sans-serif" font-size="8.2" font-weight="700" text-anchor="middle" dominant-baseline="middle">CV</text>
+                                    </svg>
+                                </a>
                                 <!-- <br> -->
                                 <!-- <a style="font-size: 22px;" href="./Yifan_Jiang_CV.pdf">[CV]</a> -->
                                 <!-- <a href="./RS.pdf">[Research Statement]</a> -->
@@ -383,10 +388,24 @@
             <div class="container-fluid" id="main-pub-container">
                 <div class="row">
                     <div class="col col-wrapper">
-                        <div class="section-title" id="selected_publication">Selected Publications</div>
+                        <div class="section-title publication-view-switch" role="group" aria-label="Publication view">
+                            <button type="button" id="publication-view-recent"
+                                class="publication-view-option activated" aria-pressed="true"
+                                aria-controls="main-pub-card-container" onclick="publicationByRecent();">
+                                Recent Publications
+                            </button>
+                            <span class="publication-view-alternative">
+                                <span aria-hidden="true">/</span>
+                                <button type="button" id="publication-view-full"
+                                    class="publication-view-option" aria-pressed="false"
+                                    aria-controls="all-publications main-pub-card-container" onclick="publicationBySelected();">
+                                    Full Publication
+                                </button>
+                            </span>
+                        </div>
                     </div>
                 </div>
-                <h5 class="subtitle" id="all-publications">
+                <h5 class="subtitle" id="all-publications" hidden>
                     (
                     <a id="publication-by-selected" href="javascript:;" ,="" onclick="publicationBySelected();"
                         class="activated">show selected</a> /
@@ -396,7 +415,7 @@
                         all by topic</a>
                     )
                 </h5>
-                <p class="subtitle-aux"><span class="bold">Topics:</span>
+                <p class="subtitle-aux" hidden><span class="bold">Topics:</span>
                     <a href="./#topic-Generative-Model" onclick="return publicationByTopicSpecific(this)"
                         data-topic="Generative-Model" class="">Generative Model</a> /
                     <a href="./#topic-3D-Vision" onclick="return publicationByTopicSpecific(this)"
@@ -410,9 +429,9 @@
 
                 
 
-                <div id="main-pub-card-container" class="">
+                <div id="main-pub-card-container" class="" hidden>
 
-                    <div class="pub-card" data-topic="3D-Vision" data-year="2025" data-selected="true">
+                    <div class="pub-card" data-topic="3D-Vision" data-year="2025" data-selected="true" data-recent="true">
                         <div class="row align-items-center section-item">
                             <div class="col-xs-12 col-md-3 col-lg-4 col-wrapper">
                                 <div class="figure">
@@ -1296,16 +1315,6 @@
                 </div>
             </div>
         </div>
-        <div id="click-full-pub" style="font-size:16px; margin-left:20px; font-style:italic">
-            <p>
-                Click to show <a href="#research-interests" ,="" onclick="publicationByDate();" class="">[Full Publications]</a>
-            </p>
-        </div>
-        <div id="click-selected-pub" style="font-size:16px; margin-left:20px; font-style:italic">
-            <p>
-                Click to show <a href="#research-interests" ,="" onclick="publicationBySelected();" class="">[Selected Publications]</a>
-            </p>
-        </div>
         </br>
         </br>
         <!-- <div class="sec-wrapper exp-wrapper" id="exp">
@@ -1404,10 +1413,42 @@
 
         var allPublications = null;
 
+        function activatePublicationView(button) {
+            $("#main-pub-container .publication-view-option")
+                .removeClass("activated")
+                .attr("aria-pressed", "false");
+            button.addClass("activated").attr("aria-pressed", "true");
+        }
+
+        function showFullPublicationControls() {
+            activatePublicationView($("#publication-view-full"));
+            $("#main-pub-container").removeClass("recent-publications-mode");
+            $("#all-publications, #main-pub-container .subtitle-aux")
+                .prop("hidden", false)
+                .show();
+        }
+
+        function publicationByRecent() {
+            activatePublicationView($("#publication-view-recent"));
+            $("#main-pub-container").addClass("recent-publications-mode");
+            $("#all-publications, #main-pub-container .subtitle-aux")
+                .hide()
+                .prop("hidden", true);
+
+            allPublications.detach();
+            $("#main-pub-card-container").html("");
+            for (var pubId = 0; pubId < allPublications.length; pubId++) {
+                var pub = $(allPublications[pubId]);
+                if (pub.data("recent") == true) {
+                    $("#main-pub-card-container").append(pub);
+                }
+            }
+            queuePublicationMedia(allPublications.get());
+        }
+
         function publicationBySelected() {
-            var a = $("#publication-by-selected")
-            var b = $("#selected_publication");
-            b.text("Selected Publications");
+            var a = $("#publication-by-selected");
+            showFullPublicationControls();
             $("#main-pub-container .subtitle a").removeClass("activated");
             $("#main-pub-container .subtitle-aux a").removeClass("activated");
             a.addClass("activated");
@@ -1420,10 +1461,6 @@
                     $("#main-pub-card-container").append(pub);
                 }
             }
-            var c = $("#click-selected-pub");
-            var d = $("#click-full-pub");
-            c.hide();
-            d.show();
             queuePublicationMedia(allPublications.get());
         }
 
@@ -1433,9 +1470,7 @@
                 return;
             }
 
-            var b = $("#selected_publication");
-            b.text("Full Publications");
-
+            showFullPublicationControls();
             $("#main-pub-container .subtitle a").removeClass("activated");
             $("#main-pub-container .subtitle-aux a").removeClass("activated");
             a.addClass("activated");
@@ -1455,18 +1490,12 @@
                 // }
                 $("#main-pub-card-container").append(pub);
             }
-            var c = $("#click-selected-pub");
-            var d = $("#click-full-pub");
-            c.show();
-            d.hide();
             queuePublicationMedia(allPublications.get());
         }
 
         function publicationByTopicInner() {
-            var a = $("#publication-by-topic")
-            if (a.hasClass("activated")) {
-                return;
-            }
+            var a = $("#publication-by-topic");
+            showFullPublicationControls();
             $("#main-pub-container .subtitle a").removeClass("activated");
             a.addClass("activated");
 
@@ -1513,12 +1542,6 @@
 
         function publicationByTopic() {
             publicationByTopicInner();
-            var b = $("#selected_publication");
-            b.text("Full Publications");
-            var c = $("#click-selected-pub");
-            var d = $("#click-full-pub");
-            c.show();
-            d.hide();
             publicationByTopicSpecificInner($("#main-pub-container .subtitle-aux a:first"));
             return true;
         }
@@ -1650,8 +1673,8 @@
                 allTopics.push({ name: $(allTopicsLink[topicId]).data("topic"), title: $(allTopicsLink[topicId]).html() });
             }
 
-            publicationBySelected();
-            $("#main-pub-card-container").removeClass("hide");
+            publicationByRecent();
+            $("#main-pub-card-container").prop("hidden", false).removeClass("hide").show();
         });
 
         

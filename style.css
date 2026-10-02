@@ -54,11 +54,94 @@ a:hover {
     font-size: 2em;
 }
 
+.cv-icon-link {
+    display: inline-block;
+    margin-left: 1px;
+    line-height: 1;
+    vertical-align: -0.3em;
+}
+
+.cv-icon {
+    display: block;
+    width: 29px;
+    height: 29px;
+}
+
 .section-title {
     font-family: "Open Sans", Segoe, "Segoe UI", "Lucida Sans Unicode", "Lucida Grande", "Avenir", "Seravek", "Ubuntu", "DejaVu Sans", "Trebuchet MS", Verdana, Arial, sans-serif;
     font-size: 26px;
     font-weight: 600;
     padding-bottom: 10px
+}
+
+.publication-view-switch {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25em;
+}
+
+.publication-view-alternative {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    white-space: nowrap;
+}
+
+.publication-view-option {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--cardinal);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 600;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+.publication-view-option.activated {
+    color: #000;
+    font-weight: 600;
+    cursor: default;
+}
+
+.publication-view-option:not(.activated):hover,
+.publication-view-option:not(.activated):focus {
+    text-decoration: underline;
+}
+
+.publication-view-option:focus-visible {
+    outline: 2px solid var(--cardinal);
+    outline-offset: 3px;
+}
+
+#main-pub-container.recent-publications-mode .pub-card[data-recent="true"] {
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+#main-pub-container.recent-publications-mode .pub-card[data-recent="true"] > .section-item > .col-wrapper:first-child {
+    display: none;
+}
+
+#main-pub-container.recent-publications-mode .pub-card[data-recent="true"] > .section-item > .col-wrapper:last-child {
+    position: relative;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 40px;
+}
+
+#main-pub-container.recent-publications-mode .pub-card[data-recent="true"] > .section-item > .col-wrapper:last-child::before {
+    content: "•";
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-size: 16px;
+}
+
+#main-pub-container.recent-publications-mode .pub-card[data-recent="true"] > .section-item {
+    min-height: 0;
 }
 
 .col-wrapper {
